@@ -1,6 +1,6 @@
 import "./ProductCard.css";
 
-import { Heart, Star, ShoppingCart } from "lucide-react";
+import { Heart, Star } from "lucide-react";
 import { formatCurrency } from "../../utils/formatCurrency";
 
 import type { Product } from "../../features/products/productTypes";
@@ -11,7 +11,7 @@ interface Props {
   onToggleFavorite: (id: number) => void;
 }
 
-function ProductCard({ product, isFavorite, onToggleFavorite }: Props) {
+const ProductCard = ({ product, isFavorite, onToggleFavorite }: Props) => {
   return (
     <article className="product-card">
       <button
@@ -56,6 +56,6 @@ function ProductCard({ product, isFavorite, onToggleFavorite }: Props) {
       </div>
     </article>
   );
-}
+};
 
 export default ProductCard;

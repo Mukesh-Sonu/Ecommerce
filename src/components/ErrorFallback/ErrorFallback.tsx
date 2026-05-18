@@ -2,7 +2,7 @@ import type { FallbackProps } from "react-error-boundary";
 
 import "./ErrorFallback.css";
 
-function ErrorFallback({ resetErrorBoundary }: FallbackProps) {
+const ErrorFallback = ({ resetErrorBoundary }: FallbackProps) => {
   return (
     <div className="error-boundary">
       <div className="error-card">
@@ -14,6 +14,6 @@ function ErrorFallback({ resetErrorBoundary }: FallbackProps) {
       </div>
     </div>
   );
-}
+};
 
 export default ErrorFallback;

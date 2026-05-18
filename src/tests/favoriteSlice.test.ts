@@ -1,6 +1,7 @@
 import favoritesReducer, {
   toggleFavorite,
 } from "../features/favorites/favoritesSlice";
+
 describe("favoritesSlice", () => {
   test("should add favorite", () => {
     const state = {

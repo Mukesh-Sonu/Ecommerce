@@ -1,6 +1,6 @@
 import "./ProductSkeleton.css";
 
-function ProductSkeleton() {
+const ProductSkeleton = () => {
   return (
     <div className="skeleton-card">
       <div className="skeleton-image shimmer" />
@@ -18,6 +18,6 @@ function ProductSkeleton() {
       </div>
     </div>
   );
-}
+};
 
 export default ProductSkeleton;

@@ -1,58 +1,40 @@
 .error-boundary {
   min-height: 100vh;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 24px;
 }
 
 .error-card {
   width: 100%;
   max-width: 420px;
-
   padding: 32px;
-
   border-radius: 24px;
-
   background: var(--bg-secondary);
-
   backdrop-filter: blur(18px);
-
   border: 1px solid var(--border-color);
-
   box-shadow: var(--card-shadow);
-
   text-align: center;
 }
 
 .error-card h2 {
   margin-bottom: 12px;
-
   color: var(--text-primary);
 }
 
 .error-card p {
   margin-bottom: 24px;
-
   color: var(--text-secondary);
 }
 
 .error-card button {
   height: 48px;
-
   padding: 0 24px;
-
   border: none;
-
   border-radius: 14px;
-
   background: #7c3aed;
-
   color: white;
-
   font-weight: 600;
-
   cursor: pointer;
 }

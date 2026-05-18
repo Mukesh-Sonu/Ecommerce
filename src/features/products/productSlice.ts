@@ -7,37 +7,23 @@ import { fetchProducts, fetchProductsByCategory } from "./productsThunk";
 
 interface ProductsState {
   products: Product[];
-
   loading: boolean;
-
   error: string | null;
-
   skip: number;
-
   hasMore: boolean;
-
   category: string;
-
   rating: number;
-
   sortOrder: string;
 }
 
 const initialState: ProductsState = {
   products: [],
-
   loading: false,
-
   error: null,
-
   skip: 0,
-
   hasMore: true,
-
   category: "",
-
   rating: 0,
-
   sortOrder: "",
 };
 

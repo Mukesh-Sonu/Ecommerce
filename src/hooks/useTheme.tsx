@@ -10,7 +10,7 @@ const getInitialTheme = (): Theme => {
   return savedTheme || "light";
 };
 
-function useTheme() {
+const useTheme = () => {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
   useEffect(() => {
@@ -27,6 +27,6 @@ function useTheme() {
     theme,
     toggleTheme,
   };
-}
+};
 
 export default useTheme;

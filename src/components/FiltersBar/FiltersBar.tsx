@@ -22,7 +22,7 @@ interface Props {
   onSortChange: (value: string) => void;
 }
 
-function FiltersBar({
+const FiltersBar = ({
   category,
   rating,
   sortOrder,
@@ -30,7 +30,7 @@ function FiltersBar({
   onCategoryChange,
   onRatingChange,
   onSortChange,
-}: Props) {
+}: Props) => {
   return (
     <div className="filters-bar">
       <CustomSelect
@@ -104,7 +104,7 @@ function FiltersBar({
       />
     </div>
   );
-}
+};
 
 interface SelectProps {
   value: string;
@@ -120,13 +120,13 @@ interface SelectProps {
   onValueChange: (value: string) => void;
 }
 
-function CustomSelect({
+const CustomSelect = ({
   value,
   placeholder,
   icon,
   items,
   onValueChange,
-}: SelectProps) {
+}: SelectProps) => {
   return (
     <Select.Root value={value} onValueChange={onValueChange}>
       <Select.Trigger className="select-trigger">
@@ -172,7 +172,7 @@ function CustomSelect({
       </Select.Portal>
     </Select.Root>
   );
-}
+};
 
 const formatCategory = (category: string) => {
   return category
