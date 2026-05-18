@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #f5f3ff;
+
+  --bg-secondary: rgba(255, 255, 255, 0.78);
+
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+
+  --border-color: #e5e7eb;
+
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+
+  --dropdown-bg: rgba(255, 255, 255, 0.95);
+
+  --skeleton-base: #e5e7eb;
+
+  --skeleton-highlight: rgba(255, 255, 255, 0.6);
+
+  --selected-text: #4c1d95;
+
+  --selected-bg: #ddd6fe;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+
+  --bg-secondary: rgba(15, 23, 42, 0.82);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+
+  --border-color: #334155;
+
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+  --dropdown-bg: rgba(15, 23, 42, 0.96);
+
+  --skeleton-base: rgba(255, 255, 255, 0.06);
+
+  --skeleton-highlight: rgba(255, 255, 255, 0.08);
+
+  --selected-text: #c4b5fd;
+
+  --selected-bg: rgba(124, 58, 237, 0.18);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+
+  min-height: 100vh;
+
+  background: radial-gradient(
+      circle at top left,
+      rgba(124, 58, 237, 0.12),
+      transparent 320px
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(236, 72, 153, 0.1),
+      transparent 320px
+    ),
+    var(--bg-primary);
+
+  background-attachment: fixed;
+
+  color: var(--text-primary);
+
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px;
+}
+.heading {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.skeleton-grid {
+  margin-top: 24px;
+}
+
+.bottom-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px 0;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.bottom-skeletons {
+  margin-top: 36px;
+
+  opacity: 0.9;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+}
+
+.theme-toggle {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 16px;
+
+  border: 1px solid var(--border-color);
+
+  background: var(--bg-secondary);
+
+  backdrop-filter: blur(12px);
+
+  color: var(--text-primary);
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.25s ease;
+
+  box-shadow: var(--card-shadow);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+
+  border-color: #7c3aed;
+}
+
+.api-error button {
+  margin-top: 14px;
+
+  height: 42px;
+
+  padding: 0 18px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #7c3aed;
+
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
