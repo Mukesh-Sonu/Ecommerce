@@ -9,16 +9,16 @@ import ErrorFallback from "./components/ErrorFallback/ErrorFallback";
 import "./styles/globals.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  // <React.StrictMode>
-  <Provider store={store}>
-    <ErrorBoundary
-      FallbackComponent={ErrorFallback}
-      onReset={() => {
-        window.location.reload();
-      }}
-    >
-      <App />
-    </ErrorBoundary>
-  </Provider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <ErrorBoundary
+        FallbackComponent={ErrorFallback}
+        onReset={() => {
+          window.location.reload();
+        }}
+      >
+        <App />
+      </ErrorBoundary>
+    </Provider>
+  </React.StrictMode>
 );
