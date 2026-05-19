@@ -1,10 +1,16 @@
-import { useEffect, useMemo, useState, useCallback } from "react";
+import {
+  useEffect,
+  useMemo,
+  useState,
+  useCallback,
+  lazy,
+  Suspense,
+} from "react";
 
 import { Moon, Sun } from "lucide-react";
 
 import { fetchCategoriesApi } from "../api/ProductApi";
 
-import FiltersBar from "../components/FiltersBar/FiltersBar";
 import ProductGrid from "../components/ProductGrid/ProductGrid";
 import ProductSkeleton from "../components/Skeleton/ProductSkeleton";
 
@@ -27,6 +33,8 @@ import {
 } from "../features/products/productsThunk";
 
 import { toggleFavorite } from "../features/favorites/favoritesSlice";
+
+const FiltersBar = lazy(() => import("../components/FiltersBar/FiltersBar"));
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -91,9 +99,9 @@ const Home = () => {
   });
 
   return (
-    <div className="container">
+    <main className="container">
       <div className="top-bar">
-        <h1 className="heading">E-Commerce Store</h1>
+        <h1 className="page-title">E-Commerce Store</h1>
 
         <button
           className="theme-toggle"
@@ -104,15 +112,17 @@ const Home = () => {
         </button>
       </div>
 
-      <FiltersBar
-        category={category}
-        rating={rating}
-        sortOrder={sortOrder}
-        categories={categories}
-        onCategoryChange={(value) => dispatch(setCategory(value))}
-        onRatingChange={(value) => dispatch(setRating(value))}
-        onSortChange={(value) => dispatch(setSortOrder(value))}
-      />
+      <Suspense fallback={<div>Loading filters...</div>}>
+        <FiltersBar
+          category={category}
+          rating={rating}
+          sortOrder={sortOrder}
+          categories={categories}
+          onCategoryChange={(value) => dispatch(setCategory(value))}
+          onRatingChange={(value) => dispatch(setRating(value))}
+          onSortChange={(value) => dispatch(setSortOrder(value))}
+        />
+      </Suspense>
 
       {error && (
         <div className="api-error">
@@ -159,7 +169,7 @@ const Home = () => {
       {!loading && hasMore && !category && (
         <div ref={loadMoreRef} style={{ height: "20px" }} />
       )}
-    </div>
+    </main>
   );
 };
 

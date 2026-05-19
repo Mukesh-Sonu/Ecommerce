@@ -10,12 +10,13 @@ interface Props {
 const ProductGrid = ({ products, favorites, onToggleFavorite }: Props) => {
   return (
     <div className="products-layout">
-      {products.map((product) => (
+      {products.map((product, index) => (
         <ProductCard
           key={product.id}
           product={product}
           isFavorite={favorites.includes(product.id)}
           onToggleFavorite={onToggleFavorite}
+          index={index}
         />
       ))}
     </div>

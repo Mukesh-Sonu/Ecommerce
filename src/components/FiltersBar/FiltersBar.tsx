@@ -129,7 +129,7 @@ const CustomSelect = ({
 }: SelectProps) => {
   return (
     <Select.Root value={value} onValueChange={onValueChange}>
-      <Select.Trigger className="select-trigger">
+      <Select.Trigger className="select-trigger" aria-label={placeholder}>
         <div className="select-left">
           {icon}
 

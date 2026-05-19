@@ -9,9 +9,15 @@ interface Props {
   product: Product;
   isFavorite: boolean;
   onToggleFavorite: (id: number) => void;
+  index: number;
 }
 
-const ProductCard = ({ product, isFavorite, onToggleFavorite }: Props) => {
+const ProductCard = ({
+  product,
+  isFavorite,
+  onToggleFavorite,
+  index,
+}: Props) => {
   return (
     <article className="product-card">
       <button
@@ -27,13 +33,20 @@ const ProductCard = ({ product, isFavorite, onToggleFavorite }: Props) => {
       </button>
 
       <div className="image-wrapper">
-        <img src={product.thumbnail} alt={product.title} loading="lazy" />
+        <img
+          src={product.thumbnail}
+          alt={product.title}
+          loading={index < 4 ? "eager" : "lazy"}
+          fetchPriority={index === 0 ? "high" : "auto"}
+          width="300"
+          height="300"
+        />
       </div>
 
       <div className="product-content">
         <span className="category-badge">{product.category}</span>
 
-        <h3>{product.title}</h3>
+        <h2>{product.title}</h2>
 
         <div className="price-row">
           <p className="price">{formatCurrency(product.price)}</p>

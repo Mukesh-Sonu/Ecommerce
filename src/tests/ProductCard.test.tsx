@@ -16,6 +16,7 @@ describe("ProductCard", () => {
         product={product}
         isFavorite={false}
         onToggleFavorite={() => {}}
+        index={0}
       />
     );
     expect(screen.getByText("iPhone")).toBeInTheDocument();
@@ -28,6 +29,7 @@ describe("ProductCard", () => {
         product={product}
         isFavorite={false}
         onToggleFavorite={toggleMock}
+        index={0}
       />
     );
     fireEvent.click(screen.getByRole("button"));
