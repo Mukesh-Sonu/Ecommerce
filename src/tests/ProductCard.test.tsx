@@ -1,5 +1,9 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import { describe, test, expect, vi } from "vitest";
+
 import ProductCard from "../components/ProductCard/ProductCard";
+import { formatCurrency } from "../utils/formatCurrency";
 
 describe("ProductCard", () => {
   const product = {
@@ -10,6 +14,7 @@ describe("ProductCard", () => {
     thumbnail: "image.jpg",
     category: "smartphones",
   };
+
   test("renders product details", () => {
     render(
       <ProductCard
@@ -19,11 +24,15 @@ describe("ProductCard", () => {
         index={0}
       />
     );
+
     expect(screen.getByText("iPhone")).toBeInTheDocument();
-    expect(screen.getByText("$999")).toBeInTheDocument();
+
+    expect(screen.getByText(formatCurrency(product.price))).toBeInTheDocument();
   });
+
   test("calls toggle favorite", () => {
     const toggleMock = vi.fn();
+
     render(
       <ProductCard
         product={product}
@@ -32,7 +41,13 @@ describe("ProductCard", () => {
         index={0}
       />
     );
-    fireEvent.click(screen.getByRole("button"));
-    expect(toggleMock).toHaveBeenCalled();
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: /favorite button/i,
+      })
+    );
+
+    expect(toggleMock).toHaveBeenCalledWith(1);
   });
 });

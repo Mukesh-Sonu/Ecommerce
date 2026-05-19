@@ -4,6 +4,7 @@ interface Props {
 }
 const useInfiniteScroll = ({ callback }: Props) => {
   const observerRef = useRef<IntersectionObserver | null>(null);
+
   const lastElementRef = (node: HTMLDivElement | null) => {
     if (observerRef.current) {
       observerRef.current.disconnect();
@@ -17,9 +18,11 @@ const useInfiniteScroll = ({ callback }: Props) => {
       observerRef.current.observe(node);
     }
   };
+
   useEffect(() => {
     return () => observerRef.current?.disconnect();
   }, []);
+
   return lastElementRef;
 };
 export default useInfiniteScroll;
